@@ -24,7 +24,7 @@ export default function BlogPage() {
           },
         ]}
         cta={{ label: "Contact us", href: "/contact" }}
-        secondaryCta={{ label: "Call now", href: "tel:18776071446" }}
+        secondaryCta={{ label: "Call now", href: "tel:18885922128" }}
       />
     </PageLayout>
   );

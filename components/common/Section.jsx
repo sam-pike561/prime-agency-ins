@@ -1,9 +1,9 @@
-export default function Section({ children, className }) {
+import Container from './Container'
+
+export default function Section({ children, className = '', id = '' }) {
   return (
-    <section className={`py-16 ${className}`}>
-      <div className="max-w-6xl mx-auto px-4">
-        {children}
-      </div>
+    <section className={`section ${className}`.trim()} id={id || undefined}>
+      <Container>{children}</Container>
     </section>
-  );
+  )
 }

@@ -23,7 +23,7 @@ const aboutContent = {
         body: "We work with clients across the country and tailor guidance to their specific needs and goals.",
       },
     ],
-    cta: { label: "Call for help", href: "tel:18776071446" },
+    cta: { label: "Call for help", href: "tel:18885922128" },
   },
   careers: {
     eyebrow: "Careers",
