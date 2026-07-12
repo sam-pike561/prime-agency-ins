@@ -1,0 +1,209 @@
+"use client";
+
+import { useState } from "react";
+
+const services = [
+  {
+    title: 'Medicare Advantage',
+    description: 'Guided Assistance',
+    href: '/services/medicare-guidance',
+  },
+  {
+    title: 'Affordable Health Insurance',
+    description: '',
+    href: '/services/affordable-health-insurance',
+  },
+  {
+    title: 'Dental & Vision',
+    description: '',
+    href: '/services/dental-vision',
+  },
+  {
+    title: 'Life Insurance',
+    description: '',
+    href: '/services/life-insurance',
+  },
+  {
+    title: 'Open Enrollment',
+    description: 'November - January',
+    href: '/services/open-enrollment',
+  },
+  {
+    title: 'News & Education',
+    description: '',
+    href: '/blog',
+  },
+];
+
+const aboutLinks = [
+  { title: 'Our Team', href: '/about/about' },
+  { title: 'Careers', href: '/about/careers' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Press', href: '/about/press' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavLinkClick = () => setMobileMenuOpen(false);
+
+  return (
+    <header className="navbar-shell">
+      <div className="navbar-container">
+        <a href="/" className="navbar-brand" aria-label="Elite Health home">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="480.978"
+            height="346.91"
+            viewBox="0 0 480.978 346.91"
+            className="navbar-logo"
+            role="img"
+            aria-label="Elite Health"
+          >
+            <g id="Group_5" data-name="Group 5" transform="translate(-330.511 -186.545)">
+              <g id="Group_1" data-name="Group 1">
+                <path id="Path_1" data-name="Path 1" d="M608.983,186.545,596.953,217.9a56.246,56.246,0,0,1,4.3,8.009l1.812,4.319,6.671-17.047L687,407.639a4.768,4.768,0,0,0,6.488,2.54h0a4.768,4.768,0,0,0,2.37-6.069Z" fill="#163f15"></path>
+                <path id="Path_2" data-name="Path 2" d="M558.57,317.933,525.615,403.82a4.433,4.433,0,0,0,2.082,5.515h0a4.433,4.433,0,0,0,6.185-2.312l36.607-93.549c-.192.093-.378.192-.571.283A68.109,68.109,0,0,1,558.57,317.933Z" fill="#163f15"></path>
+                <path id="Path_3" data-name="Path 3" d="M450.861,410.505h0a5.065,5.065,0,0,0,5.065-5.065V204.552h19.507V405.44a5.065,5.065,0,0,0,5.065,5.065h0a5.065,5.065,0,0,0,5.064-5.065v-93.6h63.024s32.637-2.251,45.767-34.889l-5.252-12s-10.879,37.139-45.767,37.139H485.187V204.552h60.022s31.512,1.126,42.016,36.389l68.611,166.575a6.041,6.041,0,0,0,5.585,3.739h0a6.039,6.039,0,0,0,5.569-8.377L593.978,228.936s-13.13-32.637-49.894-33.387H450.678a4.881,4.881,0,0,0-4.881,4.881V405.44A5.065,5.065,0,0,0,450.861,410.505Z" fill="#fff"></path>
+              </g>
+              <g id="Group_3" data-name="Group 3">
+                <g id="Group_2" data-name="Group 2">
+                  <path id="Path_4" data-name="Path 4" d="M335.733,485.812v10.026h-5.222V463.194q2.471,0,7.531-.023t7.578-.024a13.32,13.32,0,0,1,4.617.77,9.688,9.688,0,0,1,3.451,2.075A13.013,13.013,0,0,1,356,469a9.372,9.372,0,0,1,1.166,3.567,16.836,16.836,0,0,1,0,3.755,9.62,9.62,0,0,1-1.143,3.591,12.207,12.207,0,0,1-2.308,3.008,10.23,10.23,0,0,1-3.474,2.1,12.957,12.957,0,0,1-4.617.793Zm0-4.8h9.887a6.537,6.537,0,0,0,3.567-.957,5.635,5.635,0,0,0,2.192-2.425,7.655,7.655,0,0,0,0-6.3,5.641,5.641,0,0,0-2.192-2.425,6.545,6.545,0,0,0-3.567-.956h-9.887Z" fill="#fff"></path>
+                  <path id="Path_5" data-name="Path 5" d="M402.089,495.838h-6.11l-9.933-11.285h-6.9v11.285h-5.222V463.147q2.517,0,7.6.024t7.6.023q5.41,0,8.464,3.148a10.431,10.431,0,0,1,3.055,7.531,10.669,10.669,0,0,1-2.168,6.693,9.782,9.782,0,0,1-6.693,3.473l9.747,10.866Zm-22.945-27.887V479.8h9.934a6.115,6.115,0,0,0,4.663-1.679,5.813,5.813,0,0,0,1.585-4.15,6.172,6.172,0,0,0-1.585-4.221,5.833,5.833,0,0,0-4.617-1.8Z" fill="#fff"></path>
+                  <path id="Path_6" data-name="Path 6" d="M418.732,495.838V463.194h5.176v32.644Z" fill="#fff"></path>
+                  <path id="Path_7" data-name="Path 7" d="M471.7,470.842l-11.1,15.436h-1.119l-10.96-15.436v25.043H443.3V463.241h6.062l10.773,15.3,10.725-15.3h6.063v32.644H471.7Z" fill="#fff"></path>
+                  <path id="Path_8" data-name="Path 8" d="M520.432,495.838h-24.11V463.194h23.969v5.083H501.544v8.814h18v4.85h-18v8.767h18.888Z" fill="#fff"></path>
+                  <path id="Path_9" data-name="Path 9" d="M582.308,488.983H564.634l-3.078,6.855h-5.55l14.643-32.644h5.69l14.643,32.644h-5.55ZM573.494,468.7l-6.9,15.529h13.8Z" fill="#fff"></path>
+                  <path id="Path_10" data-name="Path 10" d="M629.4,470.7a11.371,11.371,0,0,0-4.08-2.588,13.31,13.31,0,0,0-4.733-.91,11.251,11.251,0,0,0-8.814,3.638,12.806,12.806,0,0,0-3.218,9,12.105,12.105,0,0,0,3.031,8.348q3.031,3.4,9,3.4a12.048,12.048,0,0,0,7.974-2.891v-6.622h-9.093v-4.664h13.944V490.8a16.648,16.648,0,0,1-12.825,5.689,20.339,20.339,0,0,1-7.718-1.376,13.706,13.706,0,0,1-5.387-3.73,16.543,16.543,0,0,1-3.031-5.27,18.761,18.761,0,0,1-1.026-6.273A17.758,17.758,0,0,1,608,467.414q4.569-5.013,12.591-5.013a16.53,16.53,0,0,1,12.078,4.944Z" fill="#fff"></path>
+                  <path id="Path_11" data-name="Path 11" d="M675.38,495.838H651.27V463.194h23.97v5.083H656.493v8.814h18v4.85h-18v8.767H675.38Z" fill="#fff"></path>
+                  <path id="Path_12" data-name="Path 12" d="M715.806,486.418V463.194h5.224v32.644h-3.964L698.552,472.8v23.037h-5.27V463.194h4.011Z" fill="#fff"></path>
+                  <path id="Path_13" data-name="Path 13" d="M767.891,491.641a16.721,16.721,0,0,1-12.265,4.85,19.749,19.749,0,0,1-7.648-1.4,14.213,14.213,0,0,1-5.409-3.778,16.641,16.641,0,0,1-3.1-5.316,18.456,18.456,0,0,1-1.049-6.249,18.677,18.677,0,0,1,1.073-6.319,17.68,17.68,0,0,1,3.124-5.456,14.243,14.243,0,0,1,5.433-3.894,19.093,19.093,0,0,1,7.578-1.445,16.262,16.262,0,0,1,11.938,4.943l-3.5,3.357a11.545,11.545,0,0,0-8.441-3.357q-5.829,0-8.954,3.591a12.384,12.384,0,0,0-3.077,8.534,12.554,12.554,0,0,0,3.077,8.417q3.031,3.474,8.954,3.474a12.454,12.454,0,0,0,4.664-.933,11.778,11.778,0,0,0,4.01-2.611Z" fill="#fff"></path>
+                  <path id="Path_14" data-name="Path 14" d="M795.913,477.6l9.281-14.41h6.3v.233l-12.964,19.027v13.384H793.3V482.454l-12.591-19.027v-.233h6.2Z" fill="#fff"></path>
+                </g>
+              </g>
+              <g id="Group_4" data-name="Group 4">
+                <path id="Path_15" data-name="Path 15" d="M449.495,533.123V518.6h2.3v14.523Z" fill="#163f15"></path>
+                <path id="Path_16" data-name="Path 16" d="M480.414,528.932V518.6h2.323v14.523h-1.763l-8.237-10.25v10.25h-2.344V518.6h1.784Z" fill="#163f15"></path>
+                <path id="Path_17" data-name="Path 17" d="M510.007,521.816a3.438,3.438,0,0,0-1.483-1.173,5.447,5.447,0,0,0-2.106-.446,4.474,4.474,0,0,0-2.427.592,1.818,1.818,0,0,0-.934,1.608,1.452,1.452,0,0,0,.9,1.39,9.418,9.418,0,0,0,2.625.685,18.624,18.624,0,0,1,2.2.435,8.331,8.331,0,0,1,1.805.736,3.357,3.357,0,0,1,1.359,1.328,4.064,4.064,0,0,1,.466,2,3.809,3.809,0,0,1-.9,2.594,4.893,4.893,0,0,1-2.2,1.462,9.31,9.31,0,0,1-2.915.426q-4.461,0-6.244-3.3l1.742-1.161a4.861,4.861,0,0,0,4.523,2.385,6.8,6.8,0,0,0,1.742-.208,2.954,2.954,0,0,0,1.36-.778,1.929,1.929,0,0,0,.57-1.421,1.731,1.731,0,0,0-.986-1.628,8.1,8.1,0,0,0-2.728-.757,16.908,16.908,0,0,1-1.711-.292,10.512,10.512,0,0,1-1.5-.476,4.21,4.21,0,0,1-1.276-.747,3.4,3.4,0,0,1-.81-1.131,3.744,3.744,0,0,1-.321-1.586,3.606,3.606,0,0,1,1.825-3.216,6.958,6.958,0,0,1,1.785-.717,8.184,8.184,0,0,1,1.992-.238q3.879,0,5.415,2.448Z" fill="#163f15"></path>
+                <path id="Path_18" data-name="Path 18" d="M542.11,518.621v8.486a6.3,6.3,0,0,1-10.611,4.584,6.045,6.045,0,0,1-1.712-4.584v-8.486h2.3v8.486a4.215,4.215,0,0,0,1.017,3.008,3.7,3.7,0,0,0,2.676,1.14,3.629,3.629,0,0,0,2.9-1.006,4.226,4.226,0,0,0,1.121-3.142v-8.486Z" fill="#163f15"></path>
+                <path id="Path_19" data-name="Path 19" d="M573.053,533.123h-2.719l-4.419-5.02h-3.07v5.02h-2.324V518.58q1.121,0,3.382.01t3.382.01a5,5,0,0,1,3.765,1.4,4.644,4.644,0,0,1,1.359,3.351,4.743,4.743,0,0,1-.965,2.978,4.351,4.351,0,0,1-2.976,1.545l4.335,4.833Zm-10.208-12.407v5.271h4.419a2.721,2.721,0,0,0,2.074-.748,2.585,2.585,0,0,0,.706-1.847,2.741,2.741,0,0,0-.706-1.877,2.591,2.591,0,0,0-2.053-.8Z" fill="#163f15"></path>
+                <path id="Path_20" data-name="Path 20" d="M600.488,530.072h-7.863l-1.369,3.051h-2.47L595.3,518.6h2.531l6.515,14.523h-2.469Zm-3.921-9.024-3.071,6.908h6.142Z" fill="#163f15"></path>
+                <path id="Path_21" data-name="Path 21" d="M631.327,528.932V518.6h2.323v14.523h-1.763l-8.237-10.25v10.25h-2.344V518.6h1.784Z" fill="#163f15"></path>
+                <path id="Path_22" data-name="Path 22" d="M664.468,531.255a7.438,7.438,0,0,1-5.457,2.159,8.778,8.778,0,0,1-3.4-.623,6.342,6.342,0,0,1-2.407-1.681,7.432,7.432,0,0,1-1.38-2.366,8.221,8.221,0,0,1-.466-2.779,8.308,8.308,0,0,1,.477-2.811,7.846,7.846,0,0,1,1.39-2.427,6.34,6.34,0,0,1,2.417-1.733,8.492,8.492,0,0,1,3.371-.644,7.237,7.237,0,0,1,5.311,2.2l-1.556,1.494a5.134,5.134,0,0,0-3.755-1.494,5,5,0,0,0-3.983,1.6,5.511,5.511,0,0,0-1.37,3.8,5.586,5.586,0,0,0,1.37,3.745,5,5,0,0,0,3.983,1.546,5.56,5.56,0,0,0,2.075-.415,5.244,5.244,0,0,0,1.784-1.162Z" fill="#163f15"></path>
+                <path id="Path_23" data-name="Path 23" d="M692.505,533.123H681.779V518.6h10.664v2.261H684.1v3.922h8.009v2.157H684.1v3.9h8.4Z" fill="#163f15"></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+
+        <div className="navbar-right">
+          <nav className="navbar-nav" aria-label="Primary navigation">
+            <details className="nav-dropdown">
+              <summary className="nav-summary">
+                <span>Services</span>
+                <svg viewBox="0 0 24 24" fill="none" className="dropdown-icon" aria-hidden="true">
+                  <path d="M7.5 10.5L12 15L16.5 10.5" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </summary>
+              <div className="dropdown-menu">
+                <div className="dropdown-card">
+                  <div className="dropdown-title">Our Services</div>
+                  <div className="dropdown-grid">
+                    {services.map((item) => (
+                      <a key={item.title} href={item.href} className="dropdown-item" onClick={handleNavLinkClick}>
+                        <div className="dropdown-item-copy">
+                          <div className="dropdown-item-title">{item.title}</div>
+                          {item.description ? <div className="dropdown-item-description">{item.description}</div> : null}
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="dropdown-footer">
+                    <div>
+                      <div className="dropdown-footer-title">We&apos;re Here To Help</div>
+                      <div className="dropdown-footer-copy">Insurance made easy.</div>
+                    </div>
+                    <div className="dropdown-footer-actions">
+                      <a href="/about/press" className="button-secondary" onClick={handleNavLinkClick}>Our Press</a>
+                      <a href="tel:8444523425" className="button-primary" onClick={handleNavLinkClick}>Call Today</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details className="nav-dropdown">
+              <summary className="nav-summary">
+                <span>About Us</span>
+                <svg viewBox="0 0 24 24" fill="none" className="dropdown-icon" aria-hidden="true">
+                  <path d="M7.5 10.5L12 15L16.5 10.5" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </summary>
+              <div className="dropdown-menu dropdown-menu-small">
+                <div className="dropdown-card">
+                  <div className="dropdown-title">About Us</div>
+                  <div className="dropdown-stack">
+                    {aboutLinks.map((item) => (
+                      <a key={item.title} href={item.href} className="dropdown-item dropdown-item-inline" onClick={handleNavLinkClick}>
+                        <div className="dropdown-item-title">{item.title}</div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <a href="/about/careers" className="nav-link" onClick={handleNavLinkClick}>Careers</a>
+            <a href="/contact" className="nav-link" onClick={handleNavLinkClick}>Contact Us</a>
+          </nav>
+
+          <button
+            type="button"
+            className="mobile-nav-toggle"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label="Toggle navigation"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+
+        <div className="nav-actions">
+          <a href="tel:18668611120" className="nav-cta">
+            Call Today - 1 (866) 861-1120
+          </a>
+        </div>
+      </div>
+
+      {mobileMenuOpen ? (
+        <div id="mobile-navigation" className="mobile-nav-panel">
+          <div className="mobile-nav-panel-inner">
+            <a href="/" className="mobile-nav-link" onClick={handleNavLinkClick}>Home</a>
+            <div className="mobile-nav-group">
+              <div className="mobile-nav-group-title">Services</div>
+              {services.map((item) => (
+                <a key={item.title} href={item.href} className="mobile-nav-link mobile-nav-subitem" onClick={handleNavLinkClick}>
+                  {item.title}
+                </a>
+              ))}
+            </div>
+            <div className="mobile-nav-group">
+              <div className="mobile-nav-group-title">About Us</div>
+              {aboutLinks.map((item) => (
+                <a key={item.title} href={item.href} className="mobile-nav-link mobile-nav-subitem" onClick={handleNavLinkClick}>
+                  {item.title}
+                </a>
+              ))}
+            </div>
+            <a href="/about/careers" className="mobile-nav-link" onClick={handleNavLinkClick}>Careers</a>
+            <a href="/contact" className="mobile-nav-link" onClick={handleNavLinkClick}>Contact Us</a>
+            <a href="tel:18668611120" className="mobile-nav-cta" onClick={handleNavLinkClick}>Call Today - 1 (866) 861-1120</a>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
