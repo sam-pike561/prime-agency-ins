@@ -182,6 +182,114 @@ body {
   animation: drift 8s ease-in-out infinite alternate;
 }
 
+.logo-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-carousel::before,
+.logo-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.logo-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0));
+}
+
+.logo-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0));
+}
+
+.logo-carousel-track {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  will-change: scroll-position;
+  padding: 0.25rem 0.15rem;
+}
+
+.logo-carousel-item {
+  flex: 0 0 auto;
+}
+
+.logo-carousel-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.5rem;
+  height: 5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(22, 63, 21, 0.1);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.logo-carousel-image {
+  display: block;
+  width: 7rem;
+  height: 2.25rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+.logo-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.logo-carousel-track:focus-visible {
+  outline: 2px solid rgba(22, 63, 21, 0.3);
+  outline-offset: 2px;
+}
+
+@media (min-width: 1280px) {
+  .logo-carousel-track {
+    gap: 1.25rem;
+  }
+
+  .logo-carousel-card {
+    width: 12rem;
+    height: 5.75rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .logo-carousel-image {
+    width: 8rem;
+    height: 2.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .logo-carousel-card {
+    width: 13rem;
+    height: 6rem;
+  }
+
+  .logo-carousel-image {
+    width: 8.5rem;
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-carousel-track,
+  .accent-ring::before {
+    animation: none;
+  }
+}
+
 @keyframes drift {
   0% {
     transform: translate3d(0, 0, 0) scale(1);

@@ -45,10 +45,7 @@ const aboutContent = {
         body: "If you are interested in learning more, reach out to our team through the contact page.",
       },
     ],
-    cta: {
-      label: "Contact our team",
-      href: "https://www.indeed.com/m/viewjob?jk=f69b7d45b1628e18",
-    },
+    cta: { label: "Contact our team", href: "/contact" },
   },
   press: {
     eyebrow: "Press",

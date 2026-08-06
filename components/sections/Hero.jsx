@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#f6f9f2] via-white to-[#eef5e9] py-24 md:py-32">
@@ -38,11 +40,14 @@ export default function Hero() {
           </div>
 
           <div className="grid gap-5">
-            <div className="overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-[0_30px_80px_rgba(15,23,42,0.14)]">
-              <img
-                src="https://images.pexels.com/photos/5790815/pexels-photo-5790815.jpeg?cs=srgb&dl=pexels-vlada-karpovich-5790815.jpg&fm=jpg"
-                alt="Older adults discussing healthcare at home"
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-[0_30px_80px_rgba(15,23,42,0.14)]">
+              <Image
+                src="/illustrated_stock/clipboard-and-meds.jpg"
+                alt="Illustrated healthcare provider holding a clipboard and medication"
+                width={1600}
+                height={900}
                 className="h-full w-full object-cover"
+                priority
               />
             </div>
 

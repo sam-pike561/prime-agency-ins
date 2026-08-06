@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const cards = [
   {
     icon: '✦',
@@ -44,9 +46,11 @@ export default function Services() {
         </div>
 
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-sm">
-          <img
-            src="https://images.pexels.com/photos/7446988/pexels-photo-7446988.jpeg?cs=srgb&dl=pexels-gustavo-fring-7446988.jpg&fm=jpg"
-            alt="Two smiling healthcare professionals reviewing care plans in a bright clinic"
+          <Image
+            src="/illustrated_stock/clipboard-and-meds.jpg"
+            alt="Illustrated healthcare provider with clipboard and medications"
+            width={1600}
+            height={900}
             className="h-full w-full object-cover"
           />
         </div>

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function About() {
   return (
     <section className="bg-[#f6f9f2]/80 py-20">
@@ -20,10 +22,12 @@ export default function About() {
           </div>
 
           <div className="grid gap-5">
-            <div className="overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-sm">
-              <img
-                src="https://images.pexels.com/photos/7345474/pexels-photo-7345474.jpeg?cs=srgb&dl=pexels-ai25studioai-7345474.jpg&fm=jpg"
-                alt="An older adult discussing healthcare options with an advisor"
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-sm">
+              <Image
+                src="/illustrated_stock/dcotor-office-illust.jpg"
+                alt="Illustrated doctor office scene with patient guidance"
+                width={1200}
+                height={900}
                 className="h-full w-full object-cover"
               />
             </div>

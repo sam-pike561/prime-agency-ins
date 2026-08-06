@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const testimonials = [
   {
     quote:
@@ -24,9 +26,11 @@ export default function Testimonials() {
         </div>
 
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-sm">
-          <img
-            src="https://images.pexels.com/photos/3934328/pexels-photo-3934328.jpeg?cs=srgb&dl=pexels-muskan-anand-2255253-3934328.jpg&fm=jpg"
-            alt="Older adults in a caring healthcare setting"
+          <Image
+            src="/illustrated_stock/wide-multiple-banner.jpg"
+            alt="Illustrated healthcare banner showing patient support and care"
+            width={1600}
+            height={900}
             className="h-full w-full object-cover"
           />
         </div>
