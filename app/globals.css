@@ -193,7 +193,7 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 4rem;
+  width: 1.5rem;
   z-index: 1;
   pointer-events: none;
 }
@@ -210,14 +210,14 @@ body {
 
 .logo-carousel-track {
   display: flex;
-  gap: 1rem;
+  gap: clamp(1rem, 1.2vw, 1.75rem);
   align-items: center;
   width: 100%;
   overflow-x: auto;
   scroll-behavior: auto;
   scrollbar-width: none;
   will-change: scroll-position;
-  padding: 0.25rem 0.15rem;
+  padding: 0.35rem 0.2rem;
 }
 
 .logo-carousel-item {
@@ -228,21 +228,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10.5rem;
-  height: 5rem;
-  padding: 0.85rem 1rem;
+  width: clamp(14.5rem, 34vw, 22rem);
+  height: clamp(7rem, 17vh, 10.75rem);
+  padding: clamp(0.2rem, 0.6vh, 0.45rem) clamp(0.35rem, 1vw, 0.7rem);
   border-radius: 1rem;
   border: 1px solid rgba(22, 63, 21, 0.1);
   background: #ffffff;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
 }
 
 .logo-carousel-image {
   display: block;
-  width: 9.2rem;
-  height: 3rem;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .logo-carousel-track::-webkit-scrollbar {
@@ -254,32 +256,24 @@ body {
   outline-offset: 2px;
 }
 
+@media (min-width: 640px) {
+  .logo-carousel::before,
+  .logo-carousel::after {
+    width: 4rem;
+  }
+}
+
 @media (min-width: 1280px) {
-  .logo-carousel-track {
-    gap: 1.25rem;
-  }
-
-  .logo-carousel-card {
-    width: 12rem;
-    height: 5.75rem;
-    padding: 1rem 1.15rem;
-  }
-
-  .logo-carousel-image {
-    width: 10.25rem;
-    height: 3.35rem;
+  .logo-carousel::before,
+  .logo-carousel::after {
+    width: 4.5rem;
   }
 }
 
 @media (min-width: 1536px) {
   .logo-carousel-card {
-    width: 13rem;
-    height: 6rem;
-  }
-
-  .logo-carousel-image {
-    width: 11rem;
-    height: 3.6rem;
+    width: clamp(17.5rem, 22vw, 24rem);
+    height: clamp(8.25rem, 14vh, 11.25rem);
   }
 }
 
@@ -303,6 +297,7 @@ body {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
+  overflow: visible;
   background:
     linear-gradient(135deg, #000000 0%, #060b08 30%, #0f2210 60%, #1c5b27 100%),
     radial-gradient(circle at top left, rgba(95, 183, 96, 0.25), transparent 42%);
@@ -430,6 +425,10 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+}
+
+.dropdown-grid-single {
+  grid-template-columns: 1fr;
 }
 
 .dropdown-stack {
@@ -571,10 +570,18 @@ body {
 }
 
 .mobile-nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 60;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(8, 15, 11, 0.96);
   padding: 1rem 1.25rem 1.25rem;
-  overflow: hidden;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   animation: 0.22s ease-out mobileNavSlideDown;
 }
 
@@ -636,7 +643,7 @@ body {
 
   100% {
     opacity: 1;
-    max-height: 420px;
+    max-height: calc(100vh - 96px);
   }
 }
 

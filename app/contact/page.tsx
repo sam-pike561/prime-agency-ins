@@ -16,7 +16,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button href="tel:18885922128" className="bg-white text-[#163f15] hover:bg-[#f4f8f1]">
-                  Call now: 1-(888) 592-2128
+                  Call now: 1(888) 592-2128
                 </Button>
                 <Button href="/services/medicare-guidance" className="border border-white/40 bg-transparent text-white hover:bg-white/10">
                   Explore Medicare guidance

@@ -2,9 +2,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Prime Agency Insurance',
+  title: 'Prime Agency | Medicare Advantage',
   description:
-    'Prime Agency Insurance helps families compare Medicare Advantage, Medicare Supplement, and prescription drug coverage with clear, no-cost guidance.',
+    'Prime Agency helps families compare Medicare Advantage, Medicare Supplement, and prescription drug coverage with clear, no-cost guidance.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

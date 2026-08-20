@@ -8,37 +8,11 @@ const services = [
     description: 'Guided Assistance',
     href: '/services/medicare-guidance',
   },
-  {
-    title: 'Affordable Health Insurance',
-    description: '',
-    href: '/services/affordable-health-insurance',
-  },
-  {
-    title: 'Dental & Vision',
-    description: '',
-    href: '/services/dental-vision',
-  },
-  {
-    title: 'Life Insurance',
-    description: '',
-    href: '/services/life-insurance',
-  },
-  {
-    title: 'Open Enrollment',
-    description: 'November - January',
-    href: '/services/open-enrollment',
-  },
-  {
-    title: 'News & Education',
-    description: '',
-    href: '/blog',
-  },
 ]
 
 const aboutLinks = [
   { title: 'Our Team', href: '/about/about' },
   { title: 'Careers', href: '/about/careers' },
-  { title: 'Blog', href: '/blog' },
   { title: 'Press', href: '/about/press' },
 ]
 
@@ -65,8 +39,7 @@ export default function Navbar() {
               </summary>
               <div className="dropdown-menu">
                 <div className="dropdown-card">
-                  <div className="dropdown-title">Our Services</div>
-                  <div className="dropdown-grid">
+                  <div className="dropdown-grid dropdown-grid-single">
                     {services.map((item) => (
                       <a key={item.title} href={item.href} className="dropdown-item" onClick={handleNavLinkClick}>
                         <div className="dropdown-item-copy">
@@ -86,7 +59,7 @@ export default function Navbar() {
                         Our Press
                       </a>
                       <a href="tel:18885922128" className="button-primary" onClick={handleNavLinkClick}>
-                        Call Today - 1-(888) 592-2128
+                        Call Today - 1(888) 592-2128
                       </a>
                     </div>
                   </div>
@@ -139,7 +112,7 @@ export default function Navbar() {
 
         <div className="nav-actions">
           <a href="tel:18885922128" className="nav-cta">
-            Call Today - 1-(888) 592-2128
+            Call Today - 1(888) 592-2128
           </a>
         </div>
       </div>
@@ -150,14 +123,11 @@ export default function Navbar() {
             <a href="/" className="mobile-nav-link" onClick={handleNavLinkClick}>
               Home
             </a>
-            <div className="mobile-nav-group">
-              <div className="mobile-nav-group-title">Services</div>
-              {services.map((item) => (
-                <a key={item.title} href={item.href} className="mobile-nav-link mobile-nav-subitem" onClick={handleNavLinkClick}>
-                  {item.title}
-                </a>
-              ))}
-            </div>
+            {services.map((item) => (
+              <a key={item.title} href={item.href} className="mobile-nav-link" onClick={handleNavLinkClick}>
+                {item.title}
+              </a>
+            ))}
             <div className="mobile-nav-group">
               <div className="mobile-nav-group-title">About Us</div>
               {aboutLinks.map((item) => (
@@ -173,7 +143,7 @@ export default function Navbar() {
               Contact Us
             </a>
             <a href="tel:18885922128" className="mobile-nav-cta" onClick={handleNavLinkClick}>
-              Call Today - 1-(888) 592-2128
+              Call Today - 1(888) 592-2128
             </a>
           </div>
         </div>

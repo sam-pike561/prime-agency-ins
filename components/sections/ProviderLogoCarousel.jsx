@@ -5,12 +5,8 @@ import { useEffect, useRef } from 'react'
 
 const providerLogos = [
 	{
-		name: 'Humana',
-		src: '/insurance_logos/humana-logo.png',
-	},
-	{
-		name: 'United Healthcare',
-		src: '/insurance_logos/united-healthcare-logo.png',
+		name: 'Aetna',
+		src: '/insurance_logos/aetna-logo.png',
 	},
 	{
 		name: 'Anthem',
@@ -21,8 +17,24 @@ const providerLogos = [
 		src: '/insurance_logos/cigna-healthcare-logo.png',
 	},
 	{
+		name: 'Humana',
+		src: '/insurance_logos/humana-logo.png',
+	},
+	{
 		name: 'Mutual of Omaha',
 		src: '/insurance_logos/mutual-of-omaha-logo.png',
+	},
+	{
+		name: 'United Healthcare',
+		src: '/insurance_logos/united-healthcare-logo.png',
+	},
+	{
+		name: 'Wellcare',
+		src: '/insurance_logos/wellcare-logo.png',
+	},
+	{
+		name: 'Zing Health',
+		src: '/insurance_logos/zing-health-logo.png',
 	},
 ]
 
@@ -84,8 +96,9 @@ export default function ProviderLogoCarousel() {
 									<Image
 										src={provider.src}
 										alt={provider.name}
-										width={160}
-										height={52}
+										width={420}
+										height={140}
+										unoptimized
 										className="logo-carousel-image"
 									/>
 								</div>

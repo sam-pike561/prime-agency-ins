@@ -11,9 +11,6 @@ export default function Hero() {
 
         <div className="relative grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
-            <span className="inline-flex rounded-full bg-[#163f15] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#163f15]/20">
-              Medicare made clear
-            </span>
             <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">Medicare simplified.</h1>
             <p className="max-w-2xl text-lg font-medium leading-8 text-slate-700 md:text-xl">
               We help you compare Medicare Advantage, Medicare Supplement, Prescription Drug, and Hospital Indemnity options with confidence and clarity.
@@ -63,7 +60,7 @@ export default function Hero() {
               </ul>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="tel:18885922128" className="inline-flex rounded-full bg-white px-5 py-3 font-semibold text-[#163f15] shadow-lg shadow-black/10">
-                  Call today: 1-(888) 592-2128
+                  Call today: 1(888) 592-2128
                 </a>
                 <span className="rounded-full border border-white/20 bg-white/10 px-3 py-2 text-sm font-medium text-[#f8fdf3]">
                   Fast, friendly guidance
