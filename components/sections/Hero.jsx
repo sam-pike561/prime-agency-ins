@@ -60,7 +60,7 @@ export default function Hero() {
               </ul>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="tel:18885922128" className="inline-flex rounded-full bg-white px-5 py-3 font-semibold text-[#163f15] shadow-lg shadow-black/10">
-                  Call today: 1(888) 592-2128
+                  Call today: 1 (888) 592-2128
                 </a>
                 <span className="rounded-full border border-white/20 bg-white/10 px-3 py-2 text-sm font-medium text-[#f8fdf3]">
                   Fast, friendly guidance

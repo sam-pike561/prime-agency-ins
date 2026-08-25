@@ -24,7 +24,7 @@ export default function Footer() {
           <section className="site-footer-card">
             <h3 className="site-footer-heading">Get In Touch</h3>
             <a href="tel:18885922128" className="site-footer-phone-link">
-              1(888) 592-2128
+              1 (888) 592-2128
             </a>
             <p>Licensed advisors available by phone</p>
           </section>

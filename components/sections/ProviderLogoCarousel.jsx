@@ -11,22 +11,27 @@ const providerLogos = [
 	{
 		name: 'Anthem',
 		src: '/insurance_logos/anthem-logo.png',
+		logoClassName: 'logo--boost',
 	},
 	{
 		name: 'Cigna Healthcare',
 		src: '/insurance_logos/cigna-healthcare-logo.png',
+		logoClassName: 'logo--boost',
 	},
 	{
 		name: 'Humana',
 		src: '/insurance_logos/humana-logo.png',
+		logoClassName: 'logo--boost',
 	},
 	{
 		name: 'Mutual of Omaha',
 		src: '/insurance_logos/mutual-of-omaha-logo.png',
+		logoClassName: 'logo--boost',
 	},
 	{
 		name: 'United Healthcare',
 		src: '/insurance_logos/united-healthcare-logo.png',
+		logoClassName: 'logo--boost',
 	},
 	{
 		name: 'Wellcare',
@@ -99,7 +104,7 @@ export default function ProviderLogoCarousel() {
 										width={420}
 										height={140}
 										unoptimized
-										className="logo-carousel-image"
+										className={['logo-carousel-image', provider.logoClassName].filter(Boolean).join(' ')}
 									/>
 								</div>
 							</div>

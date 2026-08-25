@@ -47,28 +47,6 @@ const aboutContent = {
     ],
     cta: { label: "Contact our team", href: "/contact" },
   },
-  press: {
-    eyebrow: "Press",
-    title: "Media resources and company highlights",
-    intro:
-      "Prime Agency is committed to helping consumers better understand their coverage options and make educated choices about their health and financial protection.",
-    bullets: [
-      "Helpful educational resources for consumers",
-      "Updates that focus on Medicare planning and insurance education",
-      "A commitment to clear and accessible communication",
-    ],
-    highlights: [
-      {
-        title: "Public education focus",
-        body: "We believe strong communication helps people feel more confident when making coverage decisions.",
-      },
-      {
-        title: "Media inquiries",
-        body: "For press-related questions or interview requests, please contact our team directly.",
-      },
-    ],
-    cta: { label: "Get in touch", href: "/contact" },
-  },
 };
 
 export default async function AboutPage({ params }: { params: Promise<{ slug: string }> }) {

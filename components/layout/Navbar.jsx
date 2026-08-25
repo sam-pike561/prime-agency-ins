@@ -13,7 +13,6 @@ const services = [
 const aboutLinks = [
   { title: 'Our Team', href: '/about/about' },
   { title: 'Careers', href: '/about/careers' },
-  { title: 'Press', href: '/about/press' },
 ]
 
 export default function Navbar() {
@@ -55,11 +54,8 @@ export default function Navbar() {
                       <div className="dropdown-footer-copy">Insurance made easy.</div>
                     </div>
                     <div className="dropdown-footer-actions">
-                      <a href="/about/press" className="button-secondary" onClick={handleNavLinkClick}>
-                        Our Press
-                      </a>
                       <a href="tel:18885922128" className="button-primary" onClick={handleNavLinkClick}>
-                        Call Today - 1(888) 592-2128
+                        Call Today 1 (888) 592-2128
                       </a>
                     </div>
                   </div>
@@ -112,7 +108,7 @@ export default function Navbar() {
 
         <div className="nav-actions">
           <a href="tel:18885922128" className="nav-cta">
-            Call Today - 1(888) 592-2128
+            Call Today 1 (888) 592-2128
           </a>
         </div>
       </div>
@@ -143,7 +139,7 @@ export default function Navbar() {
               Contact Us
             </a>
             <a href="tel:18885922128" className="mobile-nav-cta" onClick={handleNavLinkClick}>
-              Call Today - 1(888) 592-2128
+              Call Today 1 (888) 592-2128
             </a>
           </div>
         </div>
