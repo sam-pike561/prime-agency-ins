@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Prime Agency | Medicare Advantage',
+  title: 'Prime Agency',
   description:
     'Prime Agency helps families compare Medicare Advantage, Medicare Supplement, and prescription drug coverage with clear, no-cost guidance.',
 }

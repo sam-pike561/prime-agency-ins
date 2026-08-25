@@ -2,6 +2,34 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
+const recentSubmissions = new Map<string, number>()
+export const DUPLICATE_SUBMISSION_WINDOW_MS = 60_000
+
+export function checkDuplicateSubmission({
+  ip,
+  email,
+  now = Date.now(),
+  recentSubmissions,
+  thresholdMs = DUPLICATE_SUBMISSION_WINDOW_MS,
+}: {
+  ip: string
+  email: string
+  now?: number
+  recentSubmissions: Map<string, number>
+  thresholdMs?: number
+}) {
+  const normalizedEmail = email.trim().toLowerCase()
+  const normalizedIp = (ip || 'unknown').trim() || 'unknown'
+  const key = `${normalizedIp}:${normalizedEmail || 'unknown'}`
+  const previousSend = recentSubmissions.get(key) ?? 0
+
+  if (previousSend && now - previousSend < thresholdMs) {
+    return true
+  }
+
+  recentSubmissions.set(key, now)
+  return false
+}
 
 export async function POST(request: Request) {
   try {
@@ -25,10 +53,24 @@ export async function POST(request: Request) {
       )
     }
 
-    const to = process.env.CONTACT_TO_EMAIL || 'support@primeagencyins.com'
-    const from = process.env.CONTACT_FROM_EMAIL || 'Prime Agency <noreply@primeagencyins.com>'
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+      ?? request.headers.get('x-real-ip')
+      ?? 'unknown'
 
-    const result = await resend.emails.send({
+    if (checkDuplicateSubmission({ ip, email, recentSubmissions })) {
+      return NextResponse.json(
+        { error: 'Please wait a moment before sending another message.' },
+        { status: 429 }
+      )
+    }
+
+    const to = (process.env.CONTACT_TO_EMAIL || 'support@primeagencyins.com').trim()
+    const configuredFrom = (process.env.CONTACT_FROM_EMAIL || '').trim()
+    const from = configuredFrom && configuredFrom !== 'onboarding@resend.dev'
+      ? configuredFrom
+      : 'support@primeagencyins.com'
+
+    const adminResult = await resend.emails.send({
       from,
       to: [to],
       replyTo: email,
@@ -53,12 +95,49 @@ export async function POST(request: Request) {
       `,
     })
 
-    if (result.error) {
-      console.error('Resend delivery error:', result.error)
+    if (adminResult.error) {
+      console.error('Resend delivery error:', adminResult.error)
+
+      const resendError = adminResult.error as { statusCode?: number; name?: string; message?: string }
+      const isQuotaExceeded = resendError.statusCode === 429 || resendError.name === 'daily_quota_exceeded'
+
       return NextResponse.json(
-        { error: 'We could not send your message right now. Please try again later.' },
-        { status: 500 }
+        {
+          error: isQuotaExceeded
+            ? 'Our email provider has reached its daily sending limit. Please try again tomorrow or email support@primeagencyins.com directly.'
+            : 'We could not send your message right now. Please try again later.',
+        },
+        { status: isQuotaExceeded ? 429 : 500 }
       )
+    }
+
+    const autoReplyResult = await resend.emails.send({
+      from,
+      to: [email],
+      subject: 'Thank you for reaching out to Prime Agency',
+      text: [
+        `Hi ${name},`,
+        '',
+        'Thank you for reaching out to Prime Agency. We have received your message and one of our agents will follow up with you soon.',
+        '',
+        'We appreciate the opportunity to help with your Medicare needs.',
+        '',
+        'Best,',
+        'Prime Agency',
+      ].join('\n'),
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #111827; line-height: 1.6;">
+          <h2 style="margin: 0 0 16px; color: #0f172a;">Thank you for reaching out</h2>
+          <p>Hi ${name},</p>
+          <p>Thank you for contacting Prime Agency. We have received your message and one of our agents will reach out to you soon.</p>
+          <p>We appreciate the opportunity to help with your Medicare needs.</p>
+          <p style="margin-top: 24px;">Best,<br />Prime Agency</p>
+        </div>
+      `,
+    })
+
+    if (autoReplyResult.error) {
+      console.error('Auto-reply delivery error:', autoReplyResult.error)
     }
 
     return NextResponse.json({ success: true })
