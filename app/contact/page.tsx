@@ -96,26 +96,26 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-[#163f15]/10 bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#163f15]">Find us</p>
+              <div className="rounded-[1.5rem] border border-[#1d2320]/10 bg-white p-6 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1d2320]">Find us</p>
                 <p className="mt-4 text-base leading-7 text-slate-700">
                   700 W. Hillsboro Blvd<br />
                   Deerfield Beach, Florida 33441
                 </p>
               </div>
 
-              <div className="rounded-[1.5rem] border border-[#163f15]/10 bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#163f15]">Let&apos;s talk</p>
+              <div className="rounded-[1.5rem] border border-[#1d2320]/10 bg-white p-6 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1d2320]">Let&apos;s talk</p>
                 <p className="mt-4 text-lg font-semibold text-slate-900">Speak to a Licensed Insurance Agent</p>
-                <a href="tel:18885922128" className="mt-3 inline-block text-lg font-medium text-[#163f15] hover:underline">
+                <a href="tel:18885922128" className="mt-3 inline-block text-lg font-medium text-[#1d2320] hover:underline">
                   1 (888) 592-2128
                 </a>
                 <p className="mt-2 text-sm text-slate-600">Mon - Fri, 9 a.m. - 6 p.m. EST</p>
               </div>
 
-              <div className="rounded-[1.5rem] border border-[#163f15]/10 bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#163f15]">Get in touch</p>
-                <a href="mailto:support@primeagencyins.com" className="mt-4 inline-block text-lg font-semibold text-[#163f15] hover:underline">
+              <div className="rounded-[1.5rem] border border-[#1d2320]/10 bg-white p-6 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1d2320]">Get in touch</p>
+                <a href="mailto:support@primeagencyins.com" className="mt-4 inline-block text-lg font-semibold text-[#1d2320] hover:underline">
                   support@primeagencyins.com
                 </a>
                 <p className="mt-3 text-base leading-7 text-slate-700">
@@ -124,7 +124,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-8 rounded-[2rem] border border-[#163f15]/10 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.04)] md:p-8">
+            <div className="mt-8 rounded-[2rem] border border-[#1d2320]/10 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.04)] md:p-8">
               <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
                 <div>
                   <h2 className="text-2xl font-semibold text-slate-900">Contact form</h2>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           placeholder="Full name"
                           required
-                          className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                          className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                         />
                       </label>
                       <label className="block text-sm font-medium text-slate-700">
@@ -151,7 +151,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           placeholder="you@example.com"
                           required
-                          className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                          className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                         />
                       </label>
                     </div>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="(555) 123-4567"
                         required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       />
                     </label>
 
@@ -178,12 +178,12 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="Tell us how we can help"
                         required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       />
                     </label>
 
                     <label className="flex items-start gap-3 text-sm text-slate-600">
-                      <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-slate-300 text-[#163f15] focus:ring-[#163f15]" />
+                      <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-slate-300 text-[#1d2320] focus:ring-[#1d2320]" />
                       <span>
                         I agree with the Privacy Policy. By entering my phone number and pressing the Submit button, I consent to be contacted by phone, text message or email.
                       </span>
@@ -191,7 +191,7 @@ export default function ContactPage() {
 
                     {status.message ? (
                       <div
-                        className={status.type === 'success' ? 'rounded-xl border border-[#d7e6d1] bg-[#f0f8ef] px-4 py-3 text-sm text-[#163f15]' : status.type === 'error' ? 'rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700' : 'rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600'}
+                        className={status.type === 'success' ? 'rounded-xl border border-[#d7e6d1] bg-[#f0f8ef] px-4 py-3 text-sm text-[#1d2320]' : status.type === 'error' ? 'rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700' : 'rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600'}
                       >
                         {status.message}
                       </div>
@@ -200,14 +200,14 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status.type === 'loading'}
-                      className="inline-flex items-center justify-center rounded-full bg-[#163f15] px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#21461d] disabled:cursor-not-allowed disabled:opacity-70"
+                      className="inline-flex items-center justify-center rounded-full bg-[#1d2320] px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#21461d] disabled:cursor-not-allowed disabled:opacity-70"
                     >
                       {status.type === 'loading' ? 'Sending...' : 'Submit'}
                     </button>
                   </form>
                 </div>
 
-                <div className="rounded-[1.5rem] bg-[#163f15] p-6 text-white">
+                <div className="rounded-[1.5rem] bg-[#1d2320] p-6 text-white">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#dcecdc]">Need help now?</p>
                   <h3 className="mt-4 text-2xl font-bold">Our team can walk you through your options.</h3>
                   <p className="mt-4 text-base leading-7 text-[#eaf7e8]">
@@ -222,7 +222,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] border border-[#163f15]/10 bg-[#f4f8f1] p-6 text-sm leading-7 text-slate-700 md:p-8">
+            <div className="mt-8 rounded-[1.5rem] border border-[#1d2320]/10 bg-[#f4f8f1] p-6 text-sm leading-7 text-slate-700 md:p-8">
               We do not offer every plan available in your area. Plans vary by region and state, and benefits may change by carrier and location. Please contact Medicare.gov or 1-800-MEDICARE for additional coverage information. Prime Agency helps Medicare beneficiaries review and enroll in available coverage options.
             </div>
           </div>

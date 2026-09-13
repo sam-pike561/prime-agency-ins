@@ -43,7 +43,7 @@ export default function Footer() {
           <section className="site-footer-column">
             <h3 className="site-footer-heading">Contact Us</h3>
             <a href="tel:18885922128" className="site-footer-phone-link">1 (888) 592-2128 | TTY 711</a>
-            <a href="mailto:support@primeagency.com">support@primeagency.com</a>
+            <a href="mailto:support@primeagencyins.com">support@primeagencyins.com</a>
             <p>Mon - Fri, 9 a.m. - 6 p.m. EST</p>
             <p>Licensed advisors available by phone</p>
           </section>

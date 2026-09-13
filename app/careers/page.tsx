@@ -4,21 +4,21 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import PageLayout from '@/components/layout/PageLayout'
 import Section from '@/components/common/Section'
 
-const benefitPillars: Array<{ title: string; body: string; icon: 'team' | 'growth' | 'impact' }> = [
+const benefitPillars: Array<{ title: string; body: string; icon: string }> = [
   {
     title: 'Supportive team culture',
     body: 'Work alongside experienced advisors who value compassion, professionalism, and a mission-first mindset.',
-    icon: 'team',
+    icon: '/globe.svg',
   },
   {
     title: 'Real career growth',
     body: 'Build long-term confidence through structured training, coaching, and clear advancement opportunities.',
-    icon: 'growth',
+    icon: '/file.svg',
   },
   {
     title: 'Meaningful impact',
     body: 'Help families understand Medicare options and make confident decisions about coverage that affects their daily life.',
-    icon: 'impact',
+    icon: '/window.svg',
   },
 ]
 
@@ -140,26 +140,29 @@ export default function CareersPage() {
                 </div>
               </div>
 
-              <div className="relative min-h-[430px] p-4 md:p-6 lg:p-8">
-                <div
-                  className="absolute inset-4 rounded-[1.6rem] bg-cover bg-center shadow-[0_24px_60px_rgba(15,23,42,0.08)]"
-                  style={{
-                    backgroundImage:
-                      "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80')",
-                  }}
-                />
-                <div className="absolute inset-x-7 bottom-7 rounded-[1.5rem] border border-white/80 bg-white/80 p-4 shadow-[0_22px_50px_rgba(15,23,42,0.12)] backdrop-blur-sm md:p-5">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#163f15]">Why join us</p>
-                    <span className="rounded-full bg-[#163f15]/10 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[#163f15]">
+              <div className="relative p-3 sm:min-h-[430px] sm:p-4 md:p-6 lg:p-8">
+                <div className="relative overflow-hidden rounded-[1.2rem] shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:absolute sm:inset-3 sm:rounded-[1.6rem]">
+                  <div
+                    className="h-[220px] w-full bg-cover bg-center sm:h-full sm:min-h-[430px]"
+                    style={{
+                      backgroundImage:
+                        "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80')",
+                    }}
+                  />
+                </div>
+
+                <div className="relative z-10 mt-3 rounded-[1.2rem] border border-white/80 bg-white/80 p-3 shadow-[0_22px_50px_rgba(15,23,42,0.12)] backdrop-blur-sm sm:absolute sm:inset-x-7 sm:bottom-7 sm:mt-0 sm:p-4 md:p-5">
+                  <div className="mb-3 flex items-center justify-between gap-2 sm:mb-4 sm:gap-3">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#1d2320] sm:text-[0.68rem] sm:tracking-[0.22em]">Why join us</p>
+                    <span className="rounded-full bg-[#1d2320]/10 px-2 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-[#1d2320] sm:px-2.5 sm:py-1 sm:text-[0.65rem] sm:tracking-[0.18em]">
                       mission first
                     </span>
                   </div>
-                  <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="grid gap-2 sm:grid-cols-3 sm:gap-3">
                     {statCards.map((card) => (
-                      <div key={card.label} className="rounded-2xl bg-[#f4f9f2] px-3 py-3 text-center">
-                        <p className="text-[0.65rem] uppercase tracking-[0.2em] text-slate-500">{card.label}</p>
-                        <p className="mt-2 text-lg font-semibold text-[#163f15]">{card.value}</p>
+                      <div key={card.label} className="rounded-xl bg-[#f4f9f2] px-2 py-2.5 text-center sm:rounded-2xl sm:px-3 sm:py-3">
+                        <p className="text-[0.56rem] uppercase tracking-[0.14em] text-slate-500 sm:text-[0.65rem] sm:tracking-[0.2em]">{card.label}</p>
+                        <p className="mt-1 text-base font-semibold text-[#1d2320] sm:mt-2 sm:text-lg">{card.value}</p>
                       </div>
                     ))}
                   </div>
@@ -174,8 +177,8 @@ export default function CareersPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {benefitPillars.map((item) => (
                 <div key={item.title} className="soft-card soft-card-hover rounded-[1.7rem] p-7 md:p-8">
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef5ea] text-lg font-bold text-[#163f15]">
-                    {item.title.charAt(0)}
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef5ea] p-2.5 text-lg font-bold text-[#1d2320]">
+                    <img src={item.icon} alt="" className="h-full w-full object-contain" />
                   </div>
                   <h2 className="text-2xl font-semibold text-slate-900">{item.title}</h2>
                   <p className="mt-3 text-base leading-7 text-slate-700">{item.body}</p>
@@ -189,7 +192,7 @@ export default function CareersPage() {
           <div className="mx-auto max-w-6xl rounded-[2rem] border border-[#dae7d6] bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.05)] md:p-8 lg:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
               <div className="space-y-5">
-                <div className="inline-flex rounded-full border border-[#d5e7d5] bg-[#f5faf3] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#163f15]">
+                <div className="inline-flex rounded-full border border-[#d5e7d5] bg-[#f5faf3] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#1d2320]">
                   Who we’re looking for
                 </div>
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -205,25 +208,27 @@ export default function CareersPage() {
                     'Comfort speaking with clients and handling complex questions with empathy',
                     'A willingness to learn, grow, and contribute to a mission-driven team',
                   ].map((item) => (
-                    <div key={item} className="flex items-start gap-3 rounded-[1.1rem] border border-[#dfe9e1] bg-[#f7faf7] p-4">
-                      <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[rgb(95,251,63)] text-sm font-bold text-[#111111] border border-[#111111]/20">✓</span>
-                      <p className="text-slate-700">{item}</p>
+                    <div key={item} className="flex items-start gap-3 rounded-[1.1rem] border border-[#dfe9e1] bg-[#f7faf7] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.02)]">
+                      <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#1d2320]/15 bg-[#eaf5ea] text-sm font-bold text-[#1d2320] shadow-inner shadow-white/50">
+                        ✓
+                      </span>
+                      <p className="flex-1 text-base leading-7 text-slate-700">{item}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#dfe9e1] bg-[#163f15] p-5 md:p-6">
+              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#dfe9e1] bg-[#1d2320] p-4 sm:p-5 md:p-6">
                 <div
-                  className="h-[380px] rounded-[1.4rem] bg-cover bg-center"
+                  className="h-[220px] rounded-[1.2rem] bg-cover bg-center sm:h-[300px] md:h-[380px] md:rounded-[1.4rem]"
                   style={{
                     backgroundImage:
-                      "url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80')",
+                      "url('/tim-van-der-kuip-CPs2X8JYmS8-unsplash.jpg')",
                   }}
                 />
-                <div className="absolute inset-x-8 bottom-8 rounded-[1.25rem] border border-white/20 bg-[#163f15]/85 p-4 text-white shadow-[0_20px_40px_rgba(10,20,12,0.28)] backdrop-blur-sm md:p-5">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#dfeee0]">Open roles</p>
-                  <ul className="mt-3 space-y-2 text-sm text-[#edf7ee]">
+                <div className="relative z-10 mt-3 rounded-[1.1rem] border border-white/20 bg-[#1d2320]/85 p-3 text-white shadow-[0_20px_40px_rgba(10,20,12,0.28)] backdrop-blur-sm sm:absolute sm:inset-x-8 sm:bottom-8 sm:mt-0 sm:p-4 md:p-5">
+                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#dfeee0] sm:text-[0.7rem] sm:tracking-[0.2em]">Open roles</p>
+                  <ul className="mt-2 space-y-1.5 text-xs text-[#edf7ee] sm:mt-3 sm:space-y-2 sm:text-sm">
                     <li>• Health insurance agent — Medicare sales</li>
                     <li>• Customer support specialist</li>
                     <li>• Sales and client education roles</li>
@@ -235,14 +240,14 @@ export default function CareersPage() {
         </Section>
 
         <Section className="pt-0" id="apply">
-          <div className="mx-auto max-w-6xl rounded-[2rem] border border-[#dfe9e1] bg-white p-6 shadow-[0_30px_80px_rgba(15,23,42,0.05)] md:p-8">
-            <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="mx-auto max-w-6xl rounded-[2rem] border border-[#dfe9e1] bg-white p-4 shadow-[0_30px_80px_rgba(15,23,42,0.05)] sm:p-6 md:p-8">
+            <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:gap-8">
               <div>
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#163f15]">Apply now</p>
-                <h2 className="mt-4 text-3xl font-semibold text-slate-900 md:text-4xl">Share a little about yourself.</h2>
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#1d2320]">Apply now</p>
+                <h2 className="mt-3 text-2xl font-semibold text-slate-900 sm:mt-4 sm:text-3xl md:text-4xl">Share a little about yourself.</h2>
 
-                <form onSubmit={handleSubmit} className="mt-6 space-y-5">
-                  <div className="grid gap-5 md:grid-cols-2">
+                <form onSubmit={handleSubmit} className="mt-5 space-y-5 sm:mt-6">
+                  <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
                     <label className="block text-sm font-medium text-slate-700">
                       Full name
                       <input
@@ -252,7 +257,7 @@ export default function CareersPage() {
                         onChange={handleFieldChange}
                         placeholder="Your full name"
                         required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       />
                     </label>
 
@@ -265,12 +270,12 @@ export default function CareersPage() {
                         onChange={handleFieldChange}
                         placeholder="you@example.com"
                         required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       />
                     </label>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2">
+                  <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
                     <label className="block text-sm font-medium text-slate-700">
                       Phone
                       <input
@@ -280,7 +285,7 @@ export default function CareersPage() {
                         onChange={handleFieldChange}
                         placeholder="(555) 123-4567"
                         required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       />
                     </label>
 
@@ -290,7 +295,7 @@ export default function CareersPage() {
                         name="role"
                         value={form.role}
                         onChange={handleFieldChange}
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       >
                         <option>Health Insurance Agent - Medicare Sales</option>
                         <option>Customer Support Specialist</option>
@@ -309,18 +314,18 @@ export default function CareersPage() {
                       onChange={handleFieldChange}
                       placeholder="Tell us a little about your experience and why you want to join our team."
                       required
-                      className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#163f15] focus:bg-white"
+                      className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                     />
                   </label>
 
-                  <div className="grid gap-5 md:grid-cols-2">
+                  <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
                     <label className="block text-sm font-medium text-slate-700">
                       Resume
                       <input
                         type="file"
                         accept=".pdf,.doc,.docx"
                         onChange={(event) => handleFileChange(event, 'resume')}
-                        className="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#163f15] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
+                        className="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#1d2320] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
                       />
                       {resumeFile ? <span className="mt-2 block text-xs text-slate-500">Selected: {resumeFile.name}</span> : null}
                     </label>
@@ -331,7 +336,7 @@ export default function CareersPage() {
                         type="file"
                         accept=".pdf,.doc,.docx"
                         onChange={(event) => handleFileChange(event, 'coverLetter')}
-                        className="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#163f15] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
+                        className="mt-2 block w-full rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#1d2320] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
                       />
                       {coverLetterFile ? <span className="mt-2 block text-xs text-slate-500">Selected: {coverLetterFile.name}</span> : null}
                     </label>
@@ -341,7 +346,7 @@ export default function CareersPage() {
                     <div
                       className={
                         status.type === 'success'
-                          ? 'rounded-xl border border-[#d7e6d1] bg-[#f0f8ef] px-4 py-3 text-sm text-[#163f15]'
+                          ? 'rounded-xl border border-[#d7e6d1] bg-[#f0f8ef] px-4 py-3 text-sm text-[#1d2320]'
                           : status.type === 'error'
                             ? 'rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700'
                             : 'rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600'
@@ -354,24 +359,24 @@ export default function CareersPage() {
                   <button
                     type="submit"
                     disabled={status.type === 'loading'}
-                    className="inline-flex items-center justify-center rounded-full bg-[#163f15] px-6 py-3 font-semibold text-white shadow-[0_14px_28px_rgba(22,63,21,0.2)] transition hover:-translate-y-0.5 hover:bg-[#1f4d1e] disabled:cursor-not-allowed disabled:opacity-70"
+                    className="inline-flex items-center justify-center rounded-full bg-[#1d2320] px-6 py-3 font-semibold text-white shadow-[0_14px_28px_rgba(22,63,21,0.2)] transition hover:-translate-y-0.5 hover:bg-[#1f4d1e] disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {status.type === 'loading' ? 'Submitting...' : 'Submit application'}
                   </button>
                 </form>
               </div>
 
-              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#e0eadf] bg-[#f6faf5] p-5 md:p-6">
+              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#e0eadf] bg-[#f6faf5] p-4 sm:p-5 md:p-6">
                 <div
-                  className="h-[420px] rounded-[1.5rem] bg-cover bg-center"
+                  className="h-[260px] rounded-[1.2rem] bg-cover bg-center sm:h-[320px] md:h-[420px] md:rounded-[1.5rem]"
                   style={{
                     backgroundImage:
-                      "url('/about-callcenter.jpeg')",
+                      "url('/Find%20the%20Best%20Home%20Office%20Desk%20For%202022.jpeg')",
                   }}
                 />
-                <div className="absolute inset-x-8 bottom-8 rounded-[1.4rem] border border-white/75 bg-white/85 p-4 shadow-[0_20px_40px_rgba(15,23,42,0.12)] backdrop-blur-sm">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[#163f15]">Why people join</p>
-                  <p className="mt-2 text-base leading-7 text-slate-700">
+                <div className="relative z-10 mt-3 rounded-[1.1rem] border border-white/75 bg-white/85 p-3 shadow-[0_20px_40px_rgba(15,23,42,0.12)] backdrop-blur-sm sm:absolute sm:inset-x-8 sm:bottom-8 sm:mt-0 sm:p-4 md:p-4">
+                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#1d2320] sm:text-[0.7rem] sm:tracking-[0.22em]">Why people join</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700 sm:text-base sm:leading-7">
                     We support learning, accountability, and steady progress so people can build lasting careers.
                   </p>
                 </div>

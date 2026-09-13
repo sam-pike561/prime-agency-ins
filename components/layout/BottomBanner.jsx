@@ -14,6 +14,13 @@ export default function BottomBanner() {
     setIsVisible(!isDismissed)
   }, [])
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+
+    const offset = isVisible ? '96px' : '0px'
+    document.documentElement.style.setProperty('--bottom-banner-offset', offset)
+  }, [isVisible])
+
   const handleClose = () => {
     setIsVisible(false)
     if (typeof window !== 'undefined') {

@@ -65,7 +65,7 @@ export default function InfoPage({
       <Section className="pt-0">
         <div className="grid gap-8 md:grid-cols-2">
           {highlights.map((item) => (
-            <div key={item.title} className="rounded-[1.5rem] border border-[#163f15]/10 bg-white p-8 shadow-sm">
+            <div key={item.title} className="rounded-[1.5rem] border border-[#1d2320]/10 bg-white p-8 shadow-sm">
               <h2 className="text-xl font-semibold text-slate-900">{item.title}</h2>
               <p className="mt-3 text-slate-700">{item.body}</p>
             </div>

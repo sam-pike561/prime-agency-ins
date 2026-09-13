@@ -21,7 +21,7 @@ export default function Testimonials() {
     <section className="bg-white/80 py-20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#163f15]">Client stories</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1d2320]">Client stories</p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">What our clients say</h2>
         </div>
 

@@ -85,7 +85,22 @@ export default function Navbar() {
         </div>
 
         <div className="nav-actions">
-          <a href="tel:18885922128" className="nav-cta">
+          <a
+            href="tel:18885922128"
+            className="nav-cta"
+            style={{
+              background: 'linear-gradient(180deg, #fbf7f1 0%, #f2e9dc 100%)',
+              color: '#183a2d',
+              border: '2px solid #183a2d',
+              boxShadow: '0 2px 0 rgba(24, 58, 45, 0.16), 0 10px 18px rgba(17, 42, 34, 0.14)',
+              fontSize: '0.95rem',
+              fontWeight: 700,
+              letterSpacing: '0.02em',
+              textTransform: 'none',
+              position: 'relative',
+              zIndex: 1,
+            }}
+          >
             Call Today 1 (888) 592-2128
           </a>
         </div>
@@ -111,7 +126,23 @@ export default function Navbar() {
             <a href="/contact" className="mobile-nav-link" onClick={handleNavLinkClick}>
               Contact Us
             </a>
-            <a href="tel:18885922128" className="mobile-nav-cta" onClick={handleNavLinkClick}>
+            <a
+              href="tel:18885922128"
+              className="mobile-nav-cta"
+              onClick={handleNavLinkClick}
+              style={{
+                background: 'linear-gradient(180deg, #fbf7f1 0%, #f2e9dc 100%)',
+                color: '#183a2d',
+                border: '2px solid #183a2d',
+                boxShadow: '0 2px 0 rgba(24, 58, 45, 0.16), 0 10px 18px rgba(17, 42, 34, 0.14)',
+                fontSize: '0.95rem',
+                fontWeight: 700,
+                letterSpacing: '0.02em',
+                textTransform: 'none',
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
               Call Today 1 (888) 592-2128
             </a>
           </div>

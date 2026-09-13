@@ -38,7 +38,7 @@ export default function Services() {
     <section className="bg-white/80 py-20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#163f15]">Our services</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1d2320]">Our services</p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">Coverage options built around your needs</h2>
           <p className="mt-4 text-lg text-slate-600">
             With over 60 million people enrolled in Medicare nationwide, we make the process easier to understand and easier to act on.
@@ -58,7 +58,7 @@ export default function Services() {
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {cards.map((card) => (
             <div key={card.title} className="soft-card soft-card-hover rounded-[1.5rem] p-6">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#163f15]/10 text-xl text-[#163f15]">{card.icon}</div>
+              <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#1d2320]/10 text-xl text-[#1d2320]">{card.icon}</div>
               <h3 className="mt-5 text-xl font-semibold text-slate-900">{card.title}</h3>
               <p className="mt-3 text-slate-600">{card.description}</p>
             </div>
