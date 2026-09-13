@@ -28,16 +28,16 @@ export default function InfoPage({
   children,
 }) {
   return (
-    <div className="bg-[#f6f9f2]">
+    <div className="bg-[rgb(240,237,224)]">
       <Section className="pt-12 md:pt-20">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <div className="rounded-[2rem] bg-[#163f15] p-8 text-white shadow-xl md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#dcecdc]">{eyebrow}</p>
+          <div className="rounded-[2rem] bg-[rgb(5,8,5)] p-8 text-white shadow-xl md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[rgb(240,237,224)]">{eyebrow}</p>
             <h1 className="mt-4 text-4xl font-bold md:text-5xl">{title}</h1>
-            <p className="mt-6 text-lg leading-8 text-[#eaf7e8]">{intro}</p>
+            <p className="mt-6 text-lg leading-8 text-[rgb(240,237,224)]">{intro}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               {cta ? (
-                <Button href={cta.href} className="bg-white text-[#163f15] hover:bg-[#f4f8f1]">
+                <Button href={cta.href} className="bg-white text-[rgb(5,8,5)] hover:bg-[rgb(240,237,224)]">
                   {cta.label}
                 </Button>
               ) : null}
@@ -49,12 +49,12 @@ export default function InfoPage({
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-[#163f15]/10 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#163f15]">What we help with</p>
+          <div className="rounded-[2rem] border border-[rgb(106,127,138)]/20 bg-white p-8 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[rgb(5,8,5)]">What we help with</p>
             <div className="mt-5 space-y-4">
               {bullets.map((item) => (
-                <div key={item} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                  <p className="text-slate-700">{item}</p>
+                <div key={item} className="rounded-xl border border-[rgb(106,127,138)]/10 bg-[rgb(240,237,224)] p-4">
+                  <p className="text-[rgb(5,8,5)]">{item}</p>
                 </div>
               ))}
             </div>

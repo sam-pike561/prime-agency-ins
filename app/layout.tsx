@@ -1,5 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import BottomBanner from '@/components/layout/BottomBanner'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.primeagencyins.com'),
@@ -41,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         '@type': 'WebPage',
         name: 'Medicare Guidance',
-        url: 'https://www.primeagencyins.com/services/medicare-guidance',
+        url: 'https://www.primeagencyins.com/medicare-guidance',
       },
     ],
   }
@@ -51,6 +53,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLinksSchema) }} />
         {children}
+        <BottomBanner />
+        <Footer />
       </body>
     </html>
   )

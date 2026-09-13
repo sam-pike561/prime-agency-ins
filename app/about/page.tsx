@@ -32,25 +32,25 @@ const visualCards = [
 export default function AboutOverviewPage() {
   return (
     <PageLayout>
-      <div className="bg-[#f6f9f2] pb-8 md:pb-12">
+      <div className="bg-[rgb(240,237,224)] pb-8 md:pb-12">
         <Section className="pt-10 md:pt-16">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[#d6e7d0] bg-white shadow-[0_30px_90px_rgba(15,23,42,0.09)]">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[rgb(106,127,138)]/20 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.09)]">
             <div className="grid gap-0 lg:grid-cols-[1.04fr_0.96fr]">
-              <div className="relative overflow-hidden bg-[#163f15] p-8 text-white md:p-10 lg:p-12">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(146,197,166,0.22),transparent_35%)]" />
+              <div className="relative overflow-hidden bg-[rgb(5,8,5)] p-8 text-white md:p-10 lg:p-12">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(95,251,63,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(106,127,138,0.24),transparent_35%)]" />
                 <div className="relative z-10">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#dfeee0]">About Prime Agency</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[rgb(240,237,224)]">About Prime Agency</p>
                   <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-tight md:text-5xl lg:text-[3.35rem]">
                     Clear guidance for important coverage decisions.
                   </h1>
-                  <p className="mt-6 max-w-xl text-lg leading-8 text-[#e9f5ea]">
+                  <p className="mt-6 max-w-xl text-lg leading-8 text-[rgb(240,237,224)]">
                     Prime Agency helps individuals and families evaluate their options with clear explanations, practical guidance, and support they can rely on throughout the decision-making process.
                   </p>
 
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a
                       href="/careers#apply"
-                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#163f15] shadow-[0_16px_30px_rgba(10,24,12,0.18)] transition hover:-translate-y-0.5 hover:bg-[#edf7ee]"
+                      className="inline-flex items-center justify-center rounded-full bg-[rgb(20,69,54)] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_0_rgba(0,0,0,0.12)] transition hover:-translate-y-0.5 hover:bg-[rgb(17,56,44)] hover:shadow-[0_5px_0_rgba(0,0,0,0.15)]"
                     >
                       Apply now
                     </a>
@@ -158,7 +158,7 @@ export default function AboutOverviewPage() {
                 <div className="mt-5 space-y-4">
                   {values.map((item) => (
                     <div key={item} className="flex items-start gap-4 rounded-[1.3rem] border border-[#d9e8d8] bg-white px-4 py-4 shadow-sm">
-                      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#163f15] text-sm font-bold text-white">
+                      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[rgb(95,251,63)] text-sm font-bold text-[#111111] border border-[#111111]/20">
                         ✓
                       </span>
                       <p className="text-base leading-7 text-slate-700">{item}</p>

@@ -55,13 +55,13 @@ export default function ContactPage() {
 
   return (
     <PageLayout>
-      <div className="bg-[#f6f9f2]">
+      <div className="bg-[rgb(240,237,224)]">
         <Section className="pt-12 md:pt-20">
           <div className="mx-auto max-w-6xl">
-            <div className="rounded-[2rem] border border-[#d7e6d1] bg-white p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] md:p-10">
+            <div className="rounded-[2rem] border border-[rgb(106,127,138)]/20 bg-white p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] md:p-10">
               <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#163f15]">Get in touch</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[rgb(5,8,5)]">Get in touch</p>
                   <h1 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl">We&apos;re here to help.</h1>
                   <p className="mt-5 max-w-xl text-lg leading-8 text-slate-700">
                     Fill out the form below or call us directly and we&apos;ll get you the help you need as fast as possible.
@@ -71,20 +71,20 @@ export default function ContactPage() {
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a
                       href="tel:18885922128"
-                      className="inline-flex items-center justify-center rounded-full bg-[#163f15] px-6 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#21461d]"
+                      className="inline-flex items-center justify-center rounded-full bg-[rgb(20,69,54)] px-6 py-3 font-semibold text-white shadow-[0_4px_0_rgba(0,0,0,0.12)] transition hover:-translate-y-0.5 hover:bg-[rgb(17,56,44)] hover:shadow-[0_5px_0_rgba(0,0,0,0.15)]"
                     >
                       Call Today 1 (888) 592-2128
                     </a>
                     <a
                       href="/services/medicare-guidance"
-                      className="inline-flex items-center justify-center rounded-full border border-[#163f15]/20 bg-white px-6 py-3 font-semibold text-[#163f15] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#f4f8f1]"
+                      className="inline-flex items-center justify-center rounded-full border border-[rgb(5,8,5)]/20 bg-white px-6 py-3 font-semibold text-[rgb(5,8,5)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[rgb(240,237,224)]"
                     >
                       Explore Medicare guidance
                     </a>
                   </div>
                 </div>
 
-                <div className="rounded-[1.5rem] border border-[#d7e6d1] bg-[#f8fbf5] p-6">
+                <div className="rounded-[1.5rem] border border-[rgb(106,127,138)]/20 bg-[rgb(240,237,224)] p-6">
                   <h2 className="text-2xl font-semibold text-slate-900">Why people reach out</h2>
                   <ul className="mt-6 space-y-4 text-base text-slate-700">
                     <li>• Understand Medicare Advantage, Medigap, and Part D options</li>

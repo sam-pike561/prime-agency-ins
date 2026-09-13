@@ -43,24 +43,6 @@ const initialForm = {
   message: '',
 }
 
-const benefitIcons = {
-  team: (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
-      <path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-8 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 0c-2.761 0-5 2.239-5 5v1h10v-1c0-2.761-2.239-5-5-5Zm8-1c2.209 0 4 1.791 4 4v3h-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  growth: (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
-      <path d="M4 18h16M7 14l3-3 3 2 4-5M14 8h3v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  impact: (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" aria-hidden="true">
-      <path d="M12 21s-6.5-3.9-6.5-9.4A3.6 3.6 0 0 1 12 9.8a3.6 3.6 0 0 1 6.5 1.8C18.5 17.1 12 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-} as const
-
 export default function CareersPage() {
   const [form, setForm] = useState(initialForm)
   const [resumeFile, setResumeFile] = useState<File | null>(null)
@@ -126,25 +108,25 @@ export default function CareersPage() {
 
   return (
     <PageLayout>
-      <div className="bg-[#f6f9f2] pb-8 md:pb-12">
+      <div className="bg-[rgb(240,237,224)] pb-8 md:pb-12">
         <Section className="pt-10 md:pt-16">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[#d6e7d0] bg-white shadow-[0_30px_90px_rgba(15,23,42,0.09)]">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-[rgb(106,127,138)]/20 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.09)]">
             <div className="grid gap-0 lg:grid-cols-[1.04fr_0.96fr]">
-              <div className="relative overflow-hidden bg-[#163f15] p-8 text-white md:p-10 lg:p-12">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(146,197,166,0.22),transparent_34%)]" />
+              <div className="relative overflow-hidden bg-[rgb(5,8,5)] p-8 text-white md:p-10 lg:p-12">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(95,251,63,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(106,127,138,0.24),transparent_34%)]" />
                 <div className="relative z-10">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#dfeee0]">Careers</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[rgb(240,237,224)]">Careers</p>
                   <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-tight md:text-5xl lg:text-[3.35rem]">
                     Build a career helping people navigate insurance with confidence.
                   </h1>
-                  <p className="mt-6 max-w-xl text-lg leading-8 text-[#e9f5ea]">
+                  <p className="mt-6 max-w-xl text-lg leading-8 text-[rgb(240,237,224)]">
                     Prime Agency is focused on clear communication, dependable service, and practical support. We help clients understand their options and make informed decisions about coverage.
                   </p>
 
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a
                       href="#apply"
-                      className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#163f15] shadow-[0_16px_30px_rgba(10,24,12,0.18)] transition hover:-translate-y-0.5 hover:bg-[#edf7ee]"
+                      className="inline-flex items-center justify-center rounded-full bg-[rgb(20,69,54)] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_0_rgba(0,0,0,0.12)] transition hover:-translate-y-0.5 hover:bg-[rgb(17,56,44)] hover:shadow-[0_5px_0_rgba(0,0,0,0.15)]"
                     >
                       Apply now
                     </a>
@@ -192,8 +174,8 @@ export default function CareersPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {benefitPillars.map((item) => (
                 <div key={item.title} className="soft-card soft-card-hover rounded-[1.7rem] p-7 md:p-8">
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef5ea] text-[#163f15]">
-                    {benefitIcons[item.icon]}
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef5ea] text-lg font-bold text-[#163f15]">
+                    {item.title.charAt(0)}
                   </div>
                   <h2 className="text-2xl font-semibold text-slate-900">{item.title}</h2>
                   <p className="mt-3 text-base leading-7 text-slate-700">{item.body}</p>
@@ -224,7 +206,7 @@ export default function CareersPage() {
                     'A willingness to learn, grow, and contribute to a mission-driven team',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 rounded-[1.1rem] border border-[#dfe9e1] bg-[#f7faf7] p-4">
-                      <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#163f15] text-sm font-bold text-white">✓</span>
+                      <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[rgb(95,251,63)] text-sm font-bold text-[#111111] border border-[#111111]/20">✓</span>
                       <p className="text-slate-700">{item}</p>
                     </div>
                   ))}
