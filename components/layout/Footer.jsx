@@ -9,6 +9,22 @@ export default function Footer() {
 
         <div className="site-footer-grid">
           <section className="site-footer-card">
+            <h3 className="site-footer-heading">Quick Links</h3>
+            <p>
+              <a href="/about">About</a>
+            </p>
+            <p>
+              <a href="/careers">Careers</a>
+            </p>
+            <p>
+              <a href="/contact">Contact</a>
+            </p>
+            <p>
+              <a href="/services/medicare-guidance">Medicare Guidance</a>
+            </p>
+          </section>
+
+          <section className="site-footer-card">
             <h3 className="site-footer-heading">Find Us</h3>
             <p>Nationwide Phone Support</p>
             <p>Mon - Fri, 9 a.m. - 6 p.m. EST</p>

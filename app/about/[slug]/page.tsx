@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import PageLayout from "@/components/layout/PageLayout";
 import InfoPage from "@/components/common/InfoPage";
 
@@ -51,6 +51,11 @@ const aboutContent = {
 
 export default async function AboutPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  if (slug === 'careers') {
+    redirect('/careers');
+  }
+
   const content = aboutContent[slug as keyof typeof aboutContent];
 
   if (!content) {

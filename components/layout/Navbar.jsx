@@ -10,11 +10,6 @@ const services = [
   },
 ]
 
-const aboutLinks = [
-  { title: 'Our Team', href: '/about/about' },
-  { title: 'Careers', href: '/about/careers' },
-]
-
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -63,28 +58,11 @@ export default function Navbar() {
               </div>
             </details>
 
-            <details className="nav-dropdown">
-              <summary className="nav-summary">
-                <span>About Us</span>
-                <svg viewBox="0 0 24 24" fill="none" className="dropdown-icon" aria-hidden="true">
-                  <path d="M7.5 10.5L12 15L16.5 10.5" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </summary>
-              <div className="dropdown-menu dropdown-menu-small">
-                <div className="dropdown-card">
-                  <div className="dropdown-title">About Us</div>
-                  <div className="dropdown-stack">
-                    {aboutLinks.map((item) => (
-                      <a key={item.title} href={item.href} className="dropdown-item dropdown-item-inline" onClick={handleNavLinkClick}>
-                        <div className="dropdown-item-title">{item.title}</div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </details>
+            <a href="/about" className="nav-link" onClick={handleNavLinkClick}>
+              Our Team
+            </a>
 
-            <a href="/about/careers" className="nav-link" onClick={handleNavLinkClick}>
+            <a href="/careers" className="nav-link" onClick={handleNavLinkClick}>
               Careers
             </a>
             <a href="/contact" className="nav-link" onClick={handleNavLinkClick}>
@@ -124,15 +102,10 @@ export default function Navbar() {
                 {item.title}
               </a>
             ))}
-            <div className="mobile-nav-group">
-              <div className="mobile-nav-group-title">About Us</div>
-              {aboutLinks.map((item) => (
-                <a key={item.title} href={item.href} className="mobile-nav-link mobile-nav-subitem" onClick={handleNavLinkClick}>
-                  {item.title}
-                </a>
-              ))}
-            </div>
-            <a href="/about/careers" className="mobile-nav-link" onClick={handleNavLinkClick}>
+            <a href="/about" className="mobile-nav-link" onClick={handleNavLinkClick}>
+              Our Team
+            </a>
+            <a href="/careers" className="mobile-nav-link" onClick={handleNavLinkClick}>
               Careers
             </a>
             <a href="/contact" className="mobile-nav-link" onClick={handleNavLinkClick}>

@@ -1,55 +1,47 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { checkDuplicateSubmission, parseContactFormData, parseRecipients } from './contact-utils'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 const recentSubmissions = new Map<string, number>()
-export const DUPLICATE_SUBMISSION_WINDOW_MS = 60_000
 
-export function checkDuplicateSubmission({
-  ip,
-  email,
-  now = Date.now(),
-  recentSubmissions,
-  thresholdMs = DUPLICATE_SUBMISSION_WINDOW_MS,
-}: {
-  ip: string
-  email: string
-  now?: number
-  recentSubmissions: Map<string, number>
-  thresholdMs?: number
-}) {
-  const normalizedEmail = email.trim().toLowerCase()
-  const normalizedIp = (ip || 'unknown').trim() || 'unknown'
-  const key = `${normalizedIp}:${normalizedEmail || 'unknown'}`
-  const previousSend = recentSubmissions.get(key) ?? 0
+async function buildAttachments(files: { resume?: File; coverLetter?: File }) {
+  const attachmentEntries = Object.entries(files).filter(([, file]) => file instanceof File)
 
-  if (previousSend && now - previousSend < thresholdMs) {
-    return true
-  }
-
-  recentSubmissions.set(key, now)
-  return false
+  return Promise.all(
+    attachmentEntries.map(async ([fieldName, file]) => ({
+      filename: file.name || `${fieldName}.pdf`,
+      content: Buffer.from(await file.arrayBuffer()),
+    }))
+  )
 }
 
 export async function POST(request: Request) {
   try {
-    if (!resend) {
-      return NextResponse.json(
-        { error: 'Email delivery is not configured for this environment.' },
-        { status: 500 }
-      )
-    }
+    const contentType = request.headers.get('content-type') || ''
+    const isMultipart = contentType.includes('multipart/form-data')
 
-    const body = await request.json()
-    const name = String(body?.name || '').trim()
-    const email = String(body?.email || '').trim()
-    const phone = String(body?.phone || '').trim()
-    const message = String(body?.message || '').trim()
+    const formData = isMultipart ? await request.formData() : null
+
+    const payload = isMultipart ? parseContactFormData(formData as FormData) : parseContactFormData((await request.json().catch(() => ({}))) as Record<string, unknown>)
+    const name = payload.name
+    const email = payload.email
+    const phone = payload.phone
+    const message = payload.message
+    const role = payload.role
+    const files = payload.files
 
     if (!name || !email || !phone || !message) {
       return NextResponse.json(
         { error: 'Please complete all required fields before submitting.' },
         { status: 400 }
+      )
+    }
+
+    if (!resend) {
+      return NextResponse.json(
+        { error: 'Email delivery is not configured for this environment.' },
+        { status: 500 }
       )
     }
 
@@ -64,35 +56,51 @@ export async function POST(request: Request) {
       )
     }
 
-    const to = (process.env.CONTACT_TO_EMAIL || 'support@primeagencyins.com').trim()
+    const toRecipients = parseRecipients(process.env.CONTACT_TO_EMAIL || 'support@primeagencyins.com')
     const configuredFrom = (process.env.CONTACT_FROM_EMAIL || '').trim()
     const from = configuredFrom && configuredFrom !== 'onboarding@resend.dev'
       ? configuredFrom
       : 'support@primeagencyins.com'
 
+    if (!toRecipients.length) {
+      return NextResponse.json(
+        { error: 'No valid recipient email is configured for this form.' },
+        { status: 500 }
+      )
+    }
+
+    const attachments = await buildAttachments(files)
+
     const adminResult = await resend.emails.send({
       from,
-      to: [to],
+      to: toRecipients,
       replyTo: email,
-      subject: `New contact request from ${name}`,
+      subject: role ? `Career application from ${name} (${role})` : `New contact request from ${name}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
         `Phone: ${phone}`,
+        role ? `Role: ${role}` : '',
         '',
         'Message:',
         message,
-      ].join('\n'),
+        files.resume ? `Resume: ${files.resume.name}` : '',
+        files.coverLetter ? `Cover letter: ${files.coverLetter.name}` : '',
+      ].filter(Boolean).join('\n'),
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111827;">
-          <h2 style="margin: 0 0 16px;">New Contact Request</h2>
+          <h2 style="margin: 0 0 16px;">${role ? 'Career Application' : 'New Contact Request'}</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
+          ${role ? `<p><strong>Role:</strong> ${role}</p>` : ''}
           <p><strong>Message:</strong></p>
           <p>${message.replace(/\n/g, '<br />')}</p>
+          ${files.resume ? `<p><strong>Resume:</strong> ${files.resume.name}</p>` : ''}
+          ${files.coverLetter ? `<p><strong>Cover Letter:</strong> ${files.coverLetter.name}</p>` : ''}
         </div>
       `,
+      attachments: attachments.length ? attachments : undefined,
     })
 
     if (adminResult.error) {
@@ -114,23 +122,25 @@ export async function POST(request: Request) {
     const autoReplyResult = await resend.emails.send({
       from,
       to: [email],
-      subject: 'Thank you for reaching out to Prime Agency',
+      subject: role ? 'Thank you for applying to Prime Agency' : 'Thank you for reaching out to Prime Agency',
       text: [
         `Hi ${name},`,
         '',
-        'Thank you for reaching out to Prime Agency. We have received your message and one of our agents will follow up with you soon.',
+        role
+          ? 'Thank you for applying to Prime Agency. We have received your application and will review it soon.'
+          : 'Thank you for reaching out to Prime Agency. We have received your message and one of our agents will follow up with you soon.',
         '',
-        'We appreciate the opportunity to help with your Medicare needs.',
+        role ? 'We appreciate your interest in joining our team.' : 'We appreciate the opportunity to help with your Medicare needs.',
         '',
         'Best,',
         'Prime Agency',
       ].join('\n'),
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #111827; line-height: 1.6;">
-          <h2 style="margin: 0 0 16px; color: #0f172a;">Thank you for reaching out</h2>
+          <h2 style="margin: 0 0 16px; color: #0f172a;">${role ? 'Thank you for applying' : 'Thank you for reaching out'}</h2>
           <p>Hi ${name},</p>
-          <p>Thank you for contacting Prime Agency. We have received your message and one of our agents will reach out to you soon.</p>
-          <p>We appreciate the opportunity to help with your Medicare needs.</p>
+          <p>${role ? 'Thank you for applying to Prime Agency. We have received your application and will review it soon.' : 'Thank you for contacting Prime Agency. We have received your message and one of our agents will reach out to you soon.'}</p>
+          <p>${role ? 'We appreciate your interest in joining our team.' : 'We appreciate the opportunity to help with your Medicare needs.'}</p>
           <p style="margin-top: 24px;">Best,<br />Prime Agency</p>
         </div>
       `,
