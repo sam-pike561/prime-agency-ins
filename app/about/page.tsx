@@ -28,7 +28,7 @@ const values = [
 
 const visualCards = [
   { label: 'Trusted guidance', value: '1:1 support' },
-  { label: 'Families served', value: '500+' },
+  { label: 'Families served', value: '75,000+' },
   { label: 'Average response', value: '< 24 hrs' },
 ]
 
