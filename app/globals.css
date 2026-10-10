@@ -11,6 +11,19 @@
   --brand-soft: rgb(244, 240, 232);
   --brand-slate: rgb(106, 127, 138);
   --bottom-banner-offset: 0px;
+  --navbar-height: 96px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 1rem);
+}
+
+#apply {
+  scroll-margin-top: calc(var(--navbar-height) + 0.5rem);
 }
 
 body {
@@ -637,7 +650,7 @@ body {
   background: var(--brand-green);
   color: rgb(5, 8, 5);
   border-bottom: 3px solid rgba(0, 0, 0, 0.96);
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: none;
 }
 
 .navbar-container {
@@ -659,10 +672,10 @@ body {
   text-decoration: none;
   color: rgb(5, 8, 5);
   padding: 0.4rem 0.9rem;
-  border-radius: 1rem;
+  border-radius: 0.85rem;
   background: transparent;
-  border: 3px solid rgb(5, 8, 5);
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18);
+  border: 2px solid rgba(5, 8, 5, 0.8);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .navbar-logo {
@@ -914,6 +927,7 @@ body {
   flex-direction: column;
   gap: 0.25rem;
   position: relative;
+  box-shadow: none;
 }
 
 .mobile-nav-toggle span {
@@ -951,6 +965,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  box-shadow: 0 4px 12px rgba(17, 35, 26, 0.08);
   animation: 0.22s ease-out mobileNavSlideDown;
 }
 
@@ -1069,6 +1084,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --navbar-height: 80px;
+  }
+
   .navbar-container {
     gap: 0.75rem;
     min-height: 80px;
@@ -1114,7 +1133,7 @@ body {
   }
 
   body {
-    padding-bottom: 232px;
+    padding-bottom: calc(var(--bottom-banner-offset, 0px) + 2rem);
   }
 }
 

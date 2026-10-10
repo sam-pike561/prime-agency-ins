@@ -1,31 +1,39 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 const BANNER_STORAGE_KEY = 'prime-agency-banner-dismissed'
 
 export default function BottomBanner() {
   const [isVisible, setIsVisible] = useState(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === 'undefined') return
 
     const isDismissed = window.sessionStorage.getItem(BANNER_STORAGE_KEY) === 'true'
     setIsVisible(!isDismissed)
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof document === 'undefined') return
 
     const offset = isVisible ? '96px' : '0px'
     document.documentElement.style.setProperty('--bottom-banner-offset', offset)
   }, [isVisible])
 
-  const handleClose = () => {
+  const dismissBanner = () => {
     setIsVisible(false)
     if (typeof window !== 'undefined') {
       window.sessionStorage.setItem(BANNER_STORAGE_KEY, 'true')
     }
+  }
+
+  const handleClose = () => {
+    dismissBanner()
+  }
+
+  const handleCtaClick = () => {
+    dismissBanner()
   }
 
   if (isVisible === null || !isVisible) {
@@ -51,10 +59,10 @@ export default function BottomBanner() {
         </div>
 
         <div className="bottom-banner-actions">
-          <a href="/contact" className="bottom-banner-button bottom-banner-button-secondary">
+          <a href="/contact" className="bottom-banner-button bottom-banner-button-secondary" onClick={handleCtaClick}>
             Contact Us
           </a>
-          <a href="tel:18885922128" className="bottom-banner-button bottom-banner-button-primary">
+          <a href="tel:18885922128" className="bottom-banner-button bottom-banner-button-primary" onClick={handleCtaClick}>
             Call 1 (888) 592-2128
           </a>
         </div>

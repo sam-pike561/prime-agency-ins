@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import CoverageMapCard from './CoverageMapCard'
 
 const cards = [
   {
@@ -46,13 +46,7 @@ export default function Services() {
         </div>
 
         <div className="mx-auto mb-12 max-w-5xl overflow-hidden rounded-[2rem] border border-[#d7e6d1] bg-white shadow-sm">
-          <Image
-            src="/illustrated_stock/clipboard-and-meds.jpg"
-            alt="Illustrated healthcare provider with clipboard and medications"
-            width={1600}
-            height={900}
-            className="h-full w-full object-cover"
-          />
+          <CoverageMapCard />
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">

@@ -298,9 +298,6 @@ export default function CareersPage() {
                         className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-[#1d2320] focus:bg-white"
                       >
                         <option>Health Insurance Agent - Medicare Sales</option>
-                        <option>Customer Support Specialist</option>
-                        <option>Sales and Client Education</option>
-                        <option>Other</option>
                       </select>
                     </label>
                   </div>
