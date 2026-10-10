@@ -99,8 +99,8 @@ export default function ContactPage() {
               <div className="rounded-[1.5rem] border border-[#1d2320]/10 bg-white p-6 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1d2320]">Find us</p>
                 <p className="mt-4 text-base leading-7 text-slate-700">
-                  700 W. Hillsboro Blvd<br />
-                  Deerfield Beach, Florida 33441
+                  7601 N Federal Hwy<br />
+                  Boca Raton, FL 33487
                 </p>
               </div>
 
